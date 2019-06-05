@@ -11,13 +11,16 @@
     <title>Login</title>
   </head>
   <body>
-    <form>
-      <div class="form-group">
-        <label for="emailAddress">Email address</label>
-        <input type="email" class="form-control" id="emailAddress" placeholder="Enter email"/>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div>
+      <form action="login.php" method="post">
+        <h2 class="text-center">Log in</h2>
+        <div class="form-group">
+          <label for="emailAddress">Email address</label>
+          <input type="email" required="required" class="form-control" id="emailAddress" placeholder="Enter email"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
