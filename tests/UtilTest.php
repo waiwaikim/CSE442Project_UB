@@ -1,4 +1,4 @@
-<?php declare(strict_types=1); include('/Applications/XAMPP/xamppfiles/htdocs/CSE442Project/src/Util.php'); ?>
+<?php declare(strict_types=1); include('../CSE442Project/src/Util.php'); ?>
 <?php
   
   use PHPUnit\Framework\TestCase;
