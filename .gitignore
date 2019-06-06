@@ -1,0 +1,6 @@
+.phpunit.result.cache
+phive.phar.asc
+phive.xml
+phpunit
+tools/
+.DS_Store
