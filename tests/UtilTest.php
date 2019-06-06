@@ -1,9 +1,9 @@
-<?php declare(strict_types=1); include('../CSE442Project/src/Util.php'); ?>
+<?php include('../CSE442Project/src/Util.php'); ?>
 <?php
   
   use PHPUnit\Framework\TestCase;
 
-  final class UtilTest extends TestCase {
+  class UtilTest extends TestCase {
     public function testCanAcceptValidEmail() {
       $this->assertTrue(Util::is_valid_email('jmsiegel@buffalo.edu'));
       $this->assertTrue(Util::is_valid_email('gggggggg@buffalo.edu'));

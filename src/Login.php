@@ -1,4 +1,4 @@
-<?php declare(strict_types=1); include('Util.php'); ?>
+<?php include('Util.php'); ?>
 <?php
   if (isset($_POST['submit'])) {
     $email = $_POST['email'];
