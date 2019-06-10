@@ -10,6 +10,7 @@
     }
 
     // get the time when $code is generated (Unix Epoch)
+    // user's input MUST be checked against in the DB before calling this function!!!
     public static function get_time($code) {
       return openssl_decrypt($code, $encrypt_method, $key, 0, $iv);
     }
