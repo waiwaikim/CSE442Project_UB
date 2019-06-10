@@ -9,6 +9,7 @@
 
       $code = get_code();
       mail($email, "Course Evaluation Confirmation", "Welcome! Your confirmation code is ".$code);
+      // adding this so I can commit again... forgot to add the task #
     } else {
       echo "Please enter a valid University at Buffalo email address.";
     }
