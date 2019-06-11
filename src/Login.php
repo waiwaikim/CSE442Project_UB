@@ -31,5 +31,6 @@
       echo "Please enter a valid University at Buffalo email address.";
     }
 
+
   }
 ?>
