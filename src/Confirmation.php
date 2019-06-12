@@ -14,7 +14,10 @@
 		  $endTime = strtotime("+15 minutes", $time);
 		  if($endTime>$newTime){
 			//failure
-			echo "<br> You have input an expired confirmation code.<br>";
+			echo "<br> You have input an expired confirmation code. Please wait while you are redirected<br>";
+			sleep(8);
+			header('Location: https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/index.html');
+			exit;
 		  }
 		  else{
 			  //success
