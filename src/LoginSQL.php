@@ -19,23 +19,42 @@
 
     function insertEmail($conn, $email, $code) {
 
-        $sql = "INSERT INTO EmailTest (email, code) 
-                VALUES ('$email',  '$code')";
+        $findsql =  "SELECT code FROM EmailCode
+                    WHERE email = '$email'";
 
-        if($conn->query($sql) == TRUE){
+        $result = $conn->query($findsql);
+
+        if ($result-> num_rows < 1) {
+
+            $sql = "INSERT INTO EmailCode (email, code) 
+                    VALUES ('$email',  '$code')";
+           
+            if($conn->query($sql) == TRUE){
                 echo "<br> New record created successfully";
             }
             else {
                 echo "<br> Error: " . $sql . "<br>" . $conn->error;
             }
-
-        $conn -> close();
+            $conn -> close();
+        }
+        else {
+            $sql = "UPDATE EmailCode
+                    SET code = '$code'
+                    WHERE email = '$email' ";
+            if($conn->query($sql) == TRUE){
+                echo "<br> New record created successfully";
+            }
+            else {
+                echo "<br> Error: " . $sql . "<br>" . $conn->error;
+            }
+            $conn -> close();
+        }          
 
     }
 
     function getConfirmCode($conn, $email) {
 
-        $sql =  "SELECT code FROM EmailTest
+        $sql =  "SELECT code FROM EmailCode
                WHERE email = '$email'";
 
         $result = $conn->query($sql);
