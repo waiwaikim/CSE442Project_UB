@@ -5,10 +5,9 @@
   if (isset($_POST['submit'])) {
 	  $confirmation = $_POST['confirmation'];
 	  //write custom function to check the table for our code
-	  //use this with Confirmcode to get old time, 
-	  //check that with new time
+	  // we dont hace access to the table... loginsql doesnt allow us to get any variable out of it or do anything unless we are login.php
 	  
-	  $code = 
+	  $code = $confirmation;
 	  $time = strtotime(ConfirmationCode::get_time($code));
 	  $newTime = time();
 	  $endTime = strtotime("+15 minutes", $time);
