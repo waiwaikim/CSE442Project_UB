@@ -6,7 +6,7 @@
   if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     if (Util::is_valid_email($email)) {
-      $code = ConfirmationCode::get_code();    
+      $code = ConfirmationCode::get_code();
       $conn = sqlConnect();
       insertEmail($conn, $email, $code);
     
