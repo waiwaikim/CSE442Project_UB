@@ -13,7 +13,7 @@
       mail($email, "Course Evaluation Confirmation", "Welcome! Your confirmation code is ".$code);
 
       session_start();
-      $_SESSION["email"] = $email
+      $_SESSION["email"] = $email;
       header('Location: https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/confirmation.html');
       exit();
     } else {
