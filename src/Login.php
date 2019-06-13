@@ -9,11 +9,13 @@
       $code = ConfirmationCode::get_code();
       $conn = sqlConnect();
       insertEmail($conn, $email, $code);
-    
+
       mail($email, "Course Evaluation Confirmation", "Welcome! Your confirmation code is ".$code);
+
+      session_start();
+      $_SESSION["email"] = $email
       header('Location: https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/confirmation.html');
-        
-        
+      exit();
     } else {
       echo "Please enter a valid University at Buffalo email address.";
     }
