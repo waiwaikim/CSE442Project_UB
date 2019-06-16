@@ -61,7 +61,7 @@
 
         if ($result-> num_rows < 1) {
 
-            echo 'Query Not Found' . mysql_error();
+            echo 'Failed to login: your confirmation code is incorrect' . mysql_error();
             exit;
         }
 
