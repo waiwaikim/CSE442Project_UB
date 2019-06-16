@@ -4,9 +4,8 @@
 <?php
   $timeout = 15;
   if (isset($_POST["submit"])) {
-    session_start();
-    $email = $_SESSION["email"];
     $input = $_POST["confirmation"];
+    $email = ConfirmationCode::get_email($input);
     $conn = sqlConnect();
     $code = getConfirmCode($conn, $email);
 
