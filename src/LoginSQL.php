@@ -19,7 +19,7 @@
 
     function insertEmail($conn, $email, $code) {
 
-        $findsql =  "SELECT code FROM roster
+        $findsql =  "SELECT code FROM loginInfo
                     WHERE email = '$email'";
 
         $result = $conn->query($findsql);
@@ -30,7 +30,7 @@
             
             $ubit = substr($email,0, strrpos($email,'@'));
             
-            $sql = "INSERT INTO roster (email, ubit,  code) 
+            $sql = "INSERT INTO loginInfo (email, ubit,  code) 
                     VALUES ('$email', '$ubit',  '$code')";
             
            
@@ -44,7 +44,7 @@
         }
         else {
         //when an existing email is entered
-            $sql = "UPDATE roster 
+            $sql = "UPDATE loginInfo 
                     SET code = '$code'
                     WHERE email = '$email' ";
             if($conn->query($sql) == TRUE){
@@ -60,7 +60,7 @@
 
     function getConfirmCode($conn, $email) {
 
-        $sql =  "SELECT code FROM roster
+        $sql =  "SELECT code FROM loginInfo
                WHERE email = '$email'";
 
         $result = $conn->query($sql);

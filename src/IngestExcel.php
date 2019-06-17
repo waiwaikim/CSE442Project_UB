@@ -18,7 +18,7 @@
         //echo  "<br>".  $column[0] . " " . $column[1] . " " . $column[2] . " " . $column[3] . " " . $column[4]  ;
         
         
-        $sql= "INSERT INTO csvInput (class, last_name, first_name, ubit, team) 
+        $sql= "INSERT INTO roster_csvInput (class, last_name, first_name, ubit, team) 
                VALUES('$column[0]','$column[1]','$column[2]','$column[3]','$column[4]')";
         
         if($conn->query($sql)== TRUE){
@@ -32,7 +32,8 @@
     }
 
 
-    $sqlEval = "INSERT INTO EvaluationInfo (class, team, evaluator, evaluator_last, evaluator_first, evaluatee, evaluatee_last, evaluatee_first)
+
+    $sqlEval = "INSERT INTO evaluationInfo (class, team, evaluator, evaluator_last, evaluator_first, evaluatee, evaluatee_last, evaluatee_first)
             SELECT 
             t1.class, 
             t1.team,
@@ -42,8 +43,8 @@
             t2.ubit,
             t2.last_name,
             t2.first_name
-            FROM csvInput t1
-            JOIN csvInput t2 
+            FROM roster_csvInput t1
+            JOIN roster_csvInput t2 
             ON t1.team = t2.team
             ORDER BY t1.team , t1.ubit";
 
