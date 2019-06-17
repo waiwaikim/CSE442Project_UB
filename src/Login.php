@@ -10,7 +10,7 @@
       $conn = sqlConnect();
       insertEmail($conn, $email, $code);
 
-      mail($email, "Course Evaluation Confirmation", "Welcome! Your confirmation code is ".$code." Please go to: https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/confirmation.html");
+      mail($email, "Course Evaluation Confirmation", "Welcome! Your confirmation code is ".$code." \n Please go to: https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/confirmation.html");
       echo "A confirmation code has been sent to ".$email;
     } else {
       echo "Please enter a valid University at Buffalo email address.";

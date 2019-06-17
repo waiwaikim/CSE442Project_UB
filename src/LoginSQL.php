@@ -35,7 +35,7 @@
             
            
             if($conn->query($sql) == TRUE){
-                echo "<br> New record created successfully";
+                //echo "<br> New record created successfully";
             }
             else {
                 echo "<br> Error: " . $sql . "<br>" . $conn->error;
@@ -48,7 +48,7 @@
                     SET code = '$code'
                     WHERE email = '$email' ";
             if($conn->query($sql) == TRUE){
-                echo "<br> New record created successfully";
+                //echo "<br> New record created successfully";
             }
             else {
                 echo "<br> Error: " . $sql . "<br>" . $conn->error;
