@@ -31,6 +31,31 @@
     
     }
 
+
+    $sqlEval = "INSERT INTO EvaluationInfo (class, team, evaluator, evaluator_last, evaluator_first, evaluatee, evaluatee_last, evaluatee_first)
+            SELECT 
+            t1.class, 
+            t1.team,
+            t1.ubit,
+            t1.last_name, 
+            t1.first_name,
+            t2.ubit,
+            t2.last_name,
+            t2.first_name
+            FROM csvInput t1
+            JOIN csvInput t2 
+            ON t1.team = t2.team
+            ORDER BY t1.team , t1.ubit";
+
+
+    if($conn->query($sqlEval)== TRUE){
+
+    }
+    else {
+        echo "<br> Error: " . $sqlEval . "<br>" . $conn->error;
+    }
+        
+
     $conn -> close();
     
 ?>
