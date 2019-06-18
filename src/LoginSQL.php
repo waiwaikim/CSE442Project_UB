@@ -32,20 +32,16 @@
         
         if ($result-> num_rows < 1) {
             $valid = false; 
-
         }
         else {
-           $valid = true;
+            $valid = true;
         }
         
+        $conn -> close();
         return $valid; 
     }
 
 
-    function checkSubmission($conn , $email){
-        
-        
-    }
 
     function insertEmail($conn, $email, $code) {
     // write function to a SQL DB
@@ -58,8 +54,7 @@
 
         if ($result-> num_rows < 1) {
         // when a new email is entered
-
-            
+ 
             $ubit = substr($email,0, strrpos($email,'@'));
             
             $sql = "INSERT INTO loginInfo (email, ubit,  code) 
@@ -100,7 +95,6 @@
         $result = $conn->query($sql);
 
         if ($result-> num_rows < 1) {
-
             echo 'Failed to login: your confirmation code is incorrect' . mysql_error();
             exit;
         }

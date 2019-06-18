@@ -2,6 +2,8 @@
 <?php include('LoginSQL.php'); ?>
 <?php include('ConfirmationCode.php'); ?>
 
+
+
 <?php
   if (isset($_POST['submit'])) {
     $email = $_POST['email'];
@@ -14,7 +16,8 @@
       }
       else{
         $code = ConfirmationCode::get_code($email);
-        $conn = sqlConnect();
+          
+        //runTestSubmissionSQL($email);
           
         $conn = sqlConnect();
         insertEmail($conn, $email, $code);
