@@ -1,6 +1,7 @@
 <?php
 
     function sqlConnect() {
+    // make a connection to SQL DB
 
         $servername = "tethys.cse.buffalo.edu";
         $username = 'waiwaiki';
@@ -17,7 +18,38 @@
         }
     }
 
+
+    function checkValidStudent($conn, $email){
+    // read function
+    // check if an email belongs to an active student 
+        
+        $ubit = substr($email,0, strpos($email,'@'));
+        
+        $checkSql = "SELECT ubit FROM roster_csvInput 
+                    WHERE ubit = '$ubit'";
+
+        $result = $conn->query($checkSql);
+        
+        if ($result-> num_rows < 1) {
+            $valid = false; 
+
+        }
+        else {
+           $valid = true;
+        }
+        
+        return $valid; 
+    }
+
+
+    function checkSubmission($conn , $email){
+        
+        
+    }
+
     function insertEmail($conn, $email, $code) {
+    // write function to a SQL DB
+    // insert a new Email address 
 
         $findsql =  "SELECT code FROM loginInfo
                     WHERE email = '$email'";
@@ -59,6 +91,8 @@
     }
 
     function getConfirmCode($conn, $email) {
+    // read function
+    // return a confirmation code for a given email 
 
         $sql =  "SELECT code FROM loginInfo
                WHERE email = '$email'";
