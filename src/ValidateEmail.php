@@ -8,7 +8,8 @@
 			if (($at = strpos($email, "@")) == FALSE) return FALSE;
 			
 			// check that ubit is 8 characters
-			if (strlen($ubit) !== 8) return FALSE;
+            // not needed anymore 
+			//if (strlen($ubit) !== 8) return FALSE;
 
 			// ensure that email is from UB
 			if ($rest !== 'buffalo.edu') return FALSE;
