@@ -29,17 +29,17 @@ function runTestSubmissionSQL($email){
     echo "role: " . $self_sub_result[0]. " leadership: " .$self_sub_result[1]. " participation: " .$self_sub_result[2]. " professionalism: " .$self_sub_result[3]. " quality: " .$self_sub_result[4] . "<br>";
           
   
-    $sub_result = readSumbission('waiwaiki@buffalo.edu', 'FrankTsa@buffalo.edu');
+    $sub_result = readSumbission('waiwaiki@buffalo.edu', 'fengmaot@buffalo.edu');
     echo "role: " . $sub_result[0]. " leadership: " .$sub_result[1]. " participation: " .$sub_result[2]. " professionalism: " .$sub_result[3]. " quality: " .$sub_result[4] . "<br>";;
     
-    $sub_result = readSumbission('FrankTsa@buffalo.edu', 'JacobSie@buffalo.edu');
+    $sub_result = readSumbission('fengmaot@buffalo.edu', 'jmsiegel@buffalo.edu');
     echo "role: " . $sub_result[0]. " leadership: " .$sub_result[1]. " participation: " .$sub_result[2]. " professionalism: " .$sub_result[3]. " quality: " .$sub_result[4] . "<br>";;
     echo "<br>";
     
     /*---------------Test writeSubmission() --------------------*/
     
     echo "Test writeSubmission() <br>   ";
-    writeSubmission ('LukeMcDa@buffalo.edu', 'JacobSie@buffalo.edu', 5, 4, 3, 2, 1);
+    writeSubmission ('lukemcda@buffalo.edu', 'jmsiegel@buffalo.edu', 5, 4, 3, 2, 1);
     echo "<br><br>";
     
     
