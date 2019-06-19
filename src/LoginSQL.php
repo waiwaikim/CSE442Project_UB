@@ -1,6 +1,7 @@
 <?php
 
     function sqlConnect() {
+    // make a connection to SQL DB
 
         $servername = "tethys.cse.buffalo.edu";
         $username = 'waiwaiki';
@@ -17,7 +18,34 @@
         }
     }
 
+
+    function checkValidStudent($conn, $email){
+    // read function
+    // check if an email belongs to an active student 
+        
+        $ubit = substr($email,0, strpos($email,'@'));
+        
+        $checkSql = "SELECT ubit FROM roster_csvInput 
+                    WHERE ubit = '$ubit'";
+
+        $result = $conn->query($checkSql);
+        
+        if ($result-> num_rows < 1) {
+            $valid = false; 
+        }
+        else {
+            $valid = true;
+        }
+        
+        $conn -> close();
+        return $valid; 
+    }
+
+
+
     function insertEmail($conn, $email, $code) {
+    // write function to a SQL DB
+    // insert a new Email address 
 
         $findsql =  "SELECT code FROM loginInfo
                     WHERE email = '$email'";
@@ -26,8 +54,7 @@
 
         if ($result-> num_rows < 1) {
         // when a new email is entered
-
-            
+ 
             $ubit = substr($email,0, strrpos($email,'@'));
             
             $sql = "INSERT INTO loginInfo (email, ubit,  code) 
@@ -59,6 +86,8 @@
     }
 
     function getConfirmCode($conn, $email) {
+    // read function
+    // return a confirmation code for a given email 
 
         $sql =  "SELECT code FROM loginInfo
                WHERE email = '$email'";
@@ -66,7 +95,6 @@
         $result = $conn->query($sql);
 
         if ($result-> num_rows < 1) {
-
             echo 'Failed to login: your confirmation code is incorrect' . mysql_error();
             exit;
         }
