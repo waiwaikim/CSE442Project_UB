@@ -9,15 +9,13 @@
     // return true or false 
         $conn = sqlConnect();
  
-        $result = mysqli_query($conn, "SELECT submission FROM loginInfo WHERE email = '$email'");
-        
-        if (!$result) {
-            echo 'Could not run query: ' . mysqli_error($conn);
-            exit;
-        }   
-        $row = mysqli_fetch_row($result);
-        
-        return $row[0];
+        $stmt = mysqli_prepare($conn, "SELECT submission FROM loginInfo WHERE email = ?");
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $submission);
+        mysqli_stmt_fetch($stmt);
+    
+        return $submissionw;
         $conn -> close();
 
     }
@@ -27,20 +25,22 @@
         // returns an array 
         $conn = sqlConnect();
         
-        $ubit = substr($email,0, strpos($email,'@'));     
-        $result = mysqli_query($conn, "SELECT ubit FROM roster_csvInput a
-                                JOIN (SELECT team FROM roster_csvInput WHERE ubit = '$ubit') b
-                                on a.team = b. team");
         
+
+        $stmt = mysqli_prepare($conn, "SELECT ubit FROM roster_csvInput a
+                                    JOIN (SELECT team FROM roster_csvInput WHERE ubit = ?) b
+                                    on a.team = b. team");
+        mysqli_stmt_bind_param($stmt, "s", substr($email,0, strpos($email,'@')));
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $ubit);
+       
         $team = array(); 
         
-        while ($row = mysqli_fetch_array($result)){
-            array_push($team, $row['ubit'] );
-            
+        while (mysqli_stmt_fetch($stmt)) {
+            array_push($team, $ubit );
         }
-        return $team ; 
-   
         
+        return $team ;         
     }
 
     function readSumbission($evaluator, $evaluatee){
@@ -48,25 +48,22 @@
         // returns an array, which can be indexed. i.e.) row[0]
         
         $conn = sqlConnect();
-      
-        $evaluator_ubit = substr($evaluator,0, strpos($evaluator,'@'));
-        $evaluatee_ubit = substr($evaluatee,0, strpos($evaluatee,'@'));
-     
-        $result = mysqli_query($conn, "SELECT 
+        
+        $stmt = mysqli_prepare($conn, "SELECT 
                                     role, 
                                     leadership, 
                                     participation, 
                                     professionalism, 
                                     quality1 
-                                FROM evaluationInfo WHERE evaluator = '$evaluator_ubit' and evaluatee = '$evaluatee_ubit'");
-         if (!$result) {
-            echo 'Could not run query: ' . mysqli_error();
-            exit;
-        }   
-        $row = mysqli_fetch_row($result);
-        return $row; 
-        $conn -> close();
+                                    FROM evaluationInfo WHERE evaluator = ? and evaluatee = ?");
         
+        mysqli_stmt_bind_param($stmt, "ss",substr($evaluator,0, strpos($evaluator,'@')),substr($evaluatee,0, strpos($evaluatee,'@')));
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $role, $lead, $part, $prof, $qaul);
+        mysqli_stmt_fetch($stmt);
+      
+        $row = array($role, $lead, $part, $prof, $qaul); 
+        return $row;         
     }
 
     function writeSubmission ($evaluator, $evaluatee, $role, $lead, $part, $prof, $qual){
@@ -74,21 +71,17 @@
         // 
         $conn = sqlConnect();
         
-        $evaluator_ubit = substr($evaluator,0, strpos($evaluator,'@'));
-        $evaluatee_ubit = substr($evaluatee,0, strpos($evaluatee,'@'));
-
+        $stmt = mysqli_prepare($conn, "UPDATE evaluationInfo SET
+                                    role = ?, 
+                                    leadership = ?, 
+                                    participation = ?, 
+                                    professionalism = ?, 
+                                    quality1 = ?
+                                    WHERE evaluator = ? and evaluatee = ?");
         
-        $result = mysqli_query($conn, "UPDATE evaluationInfo SET
-                                    role = '$role', 
-                                    leadership = '$lead', 
-                                    participation = '$part', 
-                                    professionalism = '$prof', 
-                                    quality1 = '$qual'
-                                WHERE evaluator = '$evaluator_ubit' and evaluatee = '$evaluatee_ubit'");
-         if (!$result) {
-            echo 'Could not run query: ' . mysqli_error();
-            exit;
-        }   
+        mysqli_stmt_bind_param($stmt, "iiiiiss",$role, $lead, $part, $prof, $qual,substr($evaluator,0, strpos($evaluator,'@')), substr($evaluatee,0, strpos($evaluatee,'@')));
+        
+        mysqli_stmt_execute($stmt);
         
     }
 ?>
