@@ -15,7 +15,7 @@
         mysqli_stmt_bind_result($stmt, $submission);
         mysqli_stmt_fetch($stmt);
     
-        return $submissionw;
+        return $submission;
         $conn -> close();
 
     }

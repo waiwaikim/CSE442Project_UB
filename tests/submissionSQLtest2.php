@@ -3,7 +3,7 @@
 
 <?php
 
-$email = 'waiwaiki@buffalo.edu';
+$email = 'JacobSie@buffalo.edu';
 
 echo "Testing submissionSQL.php for " .$email . "<br> Compare the results against the stored SQL data. <br> <br>";
 runTestSubmissionSQL($email);
