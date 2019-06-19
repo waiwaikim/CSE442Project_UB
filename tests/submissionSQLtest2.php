@@ -3,7 +3,7 @@
 
 <?php
 
-$email = 'waiwaiki@buffalo.edu';
+$email = 'jmsiegel@buffalo.edu';
 
 echo "Testing submissionSQL.php for " .$email . "<br> Compare the results against the stored SQL data. <br> <br>";
 runTestSubmissionSQL($email);
@@ -32,7 +32,7 @@ function runTestSubmissionSQL($email){
     $sub_result = readSumbission('waiwaiki@buffalo.edu', 'fengmaot@buffalo.edu');
     echo "role: " . $sub_result[0]. " leadership: " .$sub_result[1]. " participation: " .$sub_result[2]. " professionalism: " .$sub_result[3]. " quality: " .$sub_result[4] . "<br>";;
     
-    $sub_result = readSumbission('fengmaot@buffalo.edu', 'jmsiegel@buffalo.edu');
+    $sub_result = readSumbission('fengmaot@buffalo.edu', '	jmsiegel@buffalo.edu');
     echo "role: " . $sub_result[0]. " leadership: " .$sub_result[1]. " participation: " .$sub_result[2]. " professionalism: " .$sub_result[3]. " quality: " .$sub_result[4] . "<br>";;
     echo "<br>";
     
