@@ -18,16 +18,6 @@
      
     </div>
 	<div class= "studentSelect">
-	<!-- this code has an option selection for which student you want to grade it is not implemented as it destreamlines the proccess
-	<div id="student-select" style="width:200px;">
-		<select>
-			<option value="0">Select student:</option>
-			<option value="1">Student1</option>
-			<option value="2">Student2</option>
-			<option value="3">Student3</option>
-			<option value="4">Student4</option>
-		</select>
-	</div>-->
 	<div name="indentation"; style="margin-left: 40em">
 		<label name="title"; style="margin-left: 0em"><h4>Peer and Self Evaluation</h4></label><br><br>
 		<h6>Grade each student one at a time and then hit the next student button when you <br>have filled in all 5 catagories.
@@ -35,8 +25,8 @@
 		
 		<br><br>
 		<div id="role">
-		<label style="margin-left: 10em";><h5>Role</h5></label><br>
-		<label>Worst</label>
+			<label style="margin-left: 10em";><h5>Role</h5></label><br>
+			<label>Worst</label>
 				<form style="margin-left: 2.5em";>
 					<input type="radio" name="role" id="role0" value="0points"> Rarely completes assigned work<br>
 					<input type="radio" name="role" id="role1" value="1point"> Occasionally completes work<br>
@@ -46,24 +36,24 @@
 			<label>Best</label>
 		</div><br><br><br>
 		<div id="Leadership">
-		<label style="margin-left: 10em";><h5>Leadership</h5></label><br>
-		<label>Worst</label>
+			<label style="margin-left: 10em";><h5>Leadership</h5></label><br>
+			<label>Worst</label>
 				<form style="margin-left: 2.5em";>
-					<input type="radio" name="leadership" id="leadership1" value="0points"> Rarely takes leadership role; Does not collaborate<br>
-					<input type="radio" name="leadership" id="leadership2" value="1point"> Occasionally shows leadership; Mostly collaborates <br>
-					<input type="radio" name="leadership" id="leadership3" value="2point"> Shows an ability to lead when necessary; Willing to assist teammates<br>
-					<input type="radio" name="leadership" id="leadership4" value="3point"> Takes leadership role; Is a good collaborator
+					<input type="radio" name="leadership" id="leadership0" value="0points"> Rarely takes leadership role; Does not collaborate<br>
+					<input type="radio" name="leadership" id="leadership1" value="1point"> Occasionally shows leadership; Mostly collaborates <br>
+					<input type="radio" name="leadership" id="leadership2" value="2point"> Shows an ability to lead when necessary; Willing to assist teammates<br>
+					<input type="radio" name="leadership" id="leadership3" value="3point"> Takes leadership role; Is a good collaborator
 				</form> 
 			<label>Best</label>
 		</div><br><br><br>
 		<div id="Participation">
-		<label style="margin-left: 10em";><h5>Participation</h5></label><br>
-		<label>Worst</label>
+			<label style="margin-left: 10em";><h5>Participation</h5></label><br>
+			<label>Worst</label>
 				<form style="margin-left: 2.5em";>
-					<input type="radio" name="participation" id="participation1" value="0points"> Rarely participates in meeting and does not share ideas<br>
-					<input type="radio" name="participation"  id="participation2" value="1point"> Offers unclear or unhelpful ideas in meetings<br>
-					<input type="radio" name="participation"  id="participation3" value="2point"> Attends and particpates in most meetings; Offer useful ideas in meetings<br>
-					<input type="radio" name="participation"  id="participation4" value="3point"> Attends and participates in all meetings; Clearly expresses well developed ideas
+					<input type="radio" name="participation" id="participation0" value="0points"> Rarely participates in meeting and does not share ideas<br>
+					<input type="radio" name="participation"  id="participation1" value="1point"> Offers unclear or unhelpful ideas in meetings<br>
+					<input type="radio" name="participation"  id="participation2" value="2point"> Attends and particpates in most meetings; Offer useful ideas in meetings<br>
+					<input type="radio" name="participation"  id="participation3" value="3point"> Attends and participates in all meetings; Clearly expresses well developed ideas
 				</form> 
 			<label>Best</label>
 		</div><br><br><br>
@@ -71,10 +61,10 @@
 		<label style="margin-left: 10em";><h5>Professionalism</h5></label><br>
 			<label>Worst</label>
 				<form style="margin-left: 2.5em";>
-					<input type="radio" name="prof" id="professionalism1" value="0points"> Often discourteous and/or openly critical of teammates <br>
-					<input type="radio" name="prof" id="professionalism2" value="1point"> Usually appreciates teammates' perspective, but often unwilling to consider them<br>
-					<input type="radio" name="prof" id="professionalism3" value="2point"> Values teammates' perspectives and often willing to consider them<br>
-					<input type="radio" name="prof" id="professionalism4" value="3point"> Always courteous to teammates
+					<input type="radio" name="prof" id="professionalism0" value="0points"> Often discourteous and/or openly critical of teammates <br>
+					<input type="radio" name="prof" id="professionalism1" value="1point"> Usually appreciates teammates' perspective, but often unwilling to consider them<br>
+					<input type="radio" name="prof" id="professionalism2" value="2point"> Values teammates' perspectives and often willing to consider them<br>
+					<input type="radio" name="prof" id="professionalism3" value="3point"> Always courteous to teammates
 				</form>
 			<label>Best</label>
 		</div><br><br><br>
@@ -82,24 +72,21 @@
 			<label style="margin-left: 10em";><h5>Quality</h5></label><br>
 			<label>Worst</label>
 				<form style="margin-left: 2.5em";>
-					<input type="radio" name="quality" id="quality1" value="0points"> Rarely commits to shared documents<br>
-					<input type="radio" name="quality" id="quality2" value="1point"> Other sometimes needed to revise, debug, or fix their work<br>
-					<input type="radio" name="quality" id="quality3" value="2point"> Often commits to shared documents<br>
-					<input type="radio" name="quality" id="quality4" value="3point"> Frequently commits to shared documents
+					<input type="radio" name="quality" id="quality0" value="0points"> Rarely commits to shared documents<br>
+					<input type="radio" name="quality" id="quality1" value="1point"> Other sometimes needed to revise, debug, or fix their work<br>
+					<input type="radio" name="quality" id="quality2" value="2point"> Often commits to shared documents<br>
+					<input type="radio" name="quality" id="quality3" value="3point"> Frequently commits to shared documents
 				</form> 
 			<label>Best</label>
 		</div>
 		<br><br>
 		<button onclick="nextStudent()">Next Student</button><br><br><br>
 	</div>
-	<!--		<button onclick="setRole(1)">Click me</button>		Tests js setRole-->
+	<!--<button onclick="setQuality(0)">Click me</button>		Tests js setRole-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
 </body>
-
-
 </html>
