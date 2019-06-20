@@ -36,12 +36,12 @@
    $index3 = "participation" . $name;
    $index4 = "prof" . $name;
    $index5 = "quality" . $name;
-   if (empty($_POST[$index1]) || empty($_POST[$index2]) ||
+   /*if (empty($_POST[$index1]) || empty($_POST[$index2]) ||
       empty($_POST[$index3]) || empty($_POST[$index4]) ||
       empty($_POST[$index5])) {
         echo "Please enter all scores";
         return false;
-    }
+    }*/
     // $index = "0";
     // echo $index;
     // break;
