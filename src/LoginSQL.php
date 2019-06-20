@@ -98,4 +98,24 @@
         return $code;
         
     }
+
+    function getName($ubit){
+        //returns a full Name 
+        $conn = sqlConnect();
+
+        $stmt = mysqli_prepare($conn, "SELECT
+                                    last_name,
+                                    first_name
+                    
+                                    FROM roster_csvInput WHERE ubit = ?");
+        mysqli_stmt_bind_param($stmt, "s", $ubit);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $last_name, $first_name);
+        mysqli_stmt_fetch($stmt);
+        
+        $first_name .= " ";
+        $first_name .= $last_name;
+        return $first_name;
+        
+    }
 ?>
