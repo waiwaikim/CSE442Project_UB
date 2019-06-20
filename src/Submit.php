@@ -16,8 +16,7 @@
   // foreach($team as $result) {
     // echo $result, '<br>';
   // }
-  
-  $role = "0";
+ 
   foreach($team as $name) {
    // echo $name; 
    // if (empty($_POST["role'.$name.'"]) || empty($_POST["leadership'.$name.'"]) || 
@@ -26,25 +25,44 @@
       // echo "Please enter all scores";
     //}
     //break;
+   $role = "0";
+   $leadership = "0";
+   $participation = "0";
+   $prof = "0";
+   $quality = "0";  
+    
    $index1 = "role" . $name;
+   $index2 = "leadership" . $name;
+   $index3 = "participation" . $name;
+   $index4 = "prof" . $name;
+   $index5 = "quality" . $name;
     // $index = "0";
     // echo $index;
     // break;
-    // if(isset($_POST[index1]) //{
-      $role = $_POST[index1] . "YO";
-      echo $role;
-      break;
-    // }
+    if(isset($_POST[$index1])) {
+      $role = $_POST[$index1];
+    }
     
-    //$leadership = $_POST["leadership'.$name.'"];
-    //$participation = $_POST["participation'.$name.'"];
-    //$prof = $_POST["prof'.$name.'"];
-    //$quality = $_POST["quality'.$name.'"];
+    if(isset($_POST[$index2])) {
+      $leadership = $_POST[$index2];
+    }
+
+    if(isset($_POST[$index3])) {
+      $participation = $_POST[$index3];
+    }
+
+    if(isset($_POST[$index4])) {
+      $prof = $_POST[$index4];
+    }
+
+    if(isset($_POST[$index5])) {
+      $quality = $_POST[$index5];
+    }
+    writeSubmission($email, $name . "@buffalo.edu", $role, $leadership, $participation, $prof, $quality);      
     
-        // echo "submission success";
   }
   
-  // echo $role;
+  echo "success";
 }
 
   //   if (!empty($_POST["role0'.$name.'"])) {
