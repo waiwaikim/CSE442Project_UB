@@ -3,8 +3,10 @@
 <?php
 
 function get_options($name) {
-  return "<h3>You are currently grading: </h4>".getName($name).
-  '<div id="role">
+  $full_name = getName($name);
+
+  return '<h5>You are currently grading:  '.$full_name.'</h5>  
+  <div id="role">
     <label style="margin-left: 10em";><h5>Role</h5></label><br>
 
     <input type="radio" class="radio" name="role'.$name.'" id="role0'.$name.'" value="0"> Rarely completes assigned work<br>
