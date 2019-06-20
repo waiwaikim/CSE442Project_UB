@@ -44,6 +44,8 @@
         return $team ;
     }
 
+
+
     function readSumbission($evaluator, $evaluatee){
         // returns a evaluation score for a given evaluator and a evaluatee
         // returns an array, which can be indexed. i.e.) row[0]
