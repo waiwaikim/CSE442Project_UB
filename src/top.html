@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>Evaluation Form</title>
+</head>
+<script>
+      //$(document).ready(function(){
+
+      // jQuery methods go here...
+      // console.log("yo");
+      // $("div").hide();
+      // console.log($.ajax);
+      $.ajax({
+        type: "POST",
+        url: 'https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/CSE442Project/src/data.php',
+        dataType: 'json',
+        data: {functionname: 'add', arguments: []},
+
+        success: function (obj, textstatus) {
+                  if( !('error' in obj) ) {
+                      console.log(obj);
+                      $.each(obj, (key, value) => {
+                        const role = value[0]; 
+                        const lead = value[1];
+                        const part = value[2];
+                        const prof = value[3];
+                        const qual = value[4];
+                        document.getElementById("role" + role + key).checked = true;               
+                        document.getElementById("leadership" + lead + key).checked = true;
+                        document.getElementById("participation" + part + key).checked = true;
+                        document.getElementById("professionalism" + prof + key).checked = true;
+                        document.getElementById("quality" + qual + key).checked = true;
+                       });  
+                  }
+                  else {
+                      //console.log(obj.error);
+                  }
+            }
+      });
+</script>
+<body class="main">
+	<div class= "studentSelect">
+		<h4>Peer and Self Evaluation</h4><br><br>
+		<h6>Grade each student one at a time and then hit the submit button when you're done.</h6>
+    <form action="Submit.php" method="post">
+      <div class="form-group">
