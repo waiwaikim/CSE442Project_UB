@@ -4,7 +4,7 @@
 <?php include_once("EvalForm.php"); ?>
 
 <?php
-  $timeout = 15;
+  $timeout = 120;
   if (isset($_POST["submit"])) {
     $input = $_POST["confirmation"];
     $email = ConfirmationCode::get_email($input);

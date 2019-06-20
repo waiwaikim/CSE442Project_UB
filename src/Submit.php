@@ -11,29 +11,40 @@
   #array_push($team, "fengmaot");
   #array_push($team, "waiwaiki");
   $team = getTeammates($email);  
-
+  // writeSubmission("jmsiegel@buffalo.edu", "waiwaiki@buffalo.edu", "1", "2", "0", "1", "3");
+  // echo "success";
   // foreach($team as $result) {
     // echo $result, '<br>';
   // }
   
+  $role = "0";
   foreach($team as $name) {
-    if (empty($_POST["role'.$name.'"]) || empty($_POST["leadership'.$name.'"]) || 
-    empty($_POST["participation'.$name.'"]) || empty($_POST["prof'.$name.'"]) ||
-    empty($_POST["quality'.$name.'"])) {
-      echo "Please enter all scores";
-    }
-
-    $role = $_POST["role'.$name.'"];
-    echo $role;
-    $leadership = $_POST["leadership'.$name.'"];
-    $participation = $_POST["participation'.$name.'"];
-    $prof = $_POST["prof'.$name.'"];
-    $quality = $_POST["quality'.$name.'"];
+   // echo $name; 
+   // if (empty($_POST["role'.$name.'"]) || empty($_POST["leadership'.$name.'"]) || 
+    //empty($_POST["participation'.$name.'"]) || empty($_POST["prof'.$name.'"]) ||
+    //empty($_POST["quality'.$name.'"])) {
+      // echo "Please enter all scores";
+    //}
+    //break;
+   $index1 = "role" . $name;
+    // $index = "0";
+    // echo $index;
+    // break;
+    // if(isset($_POST[index1]) //{
+      $role = $_POST[index1] . "YO";
+      echo $role;
+      break;
+    // }
     
-    writeSubmission($email, $name, $role, $leadership, $participation, $prof, $quality);
-    echo "submission success";
+    //$leadership = $_POST["leadership'.$name.'"];
+    //$participation = $_POST["participation'.$name.'"];
+    //$prof = $_POST["prof'.$name.'"];
+    //$quality = $_POST["quality'.$name.'"];
+    
+        // echo "submission success";
   }
-  // echo "success";
+  
+  // echo $role;
 }
 
   //   if (!empty($_POST["role0'.$name.'"])) {
