@@ -6,12 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!--js files-->
 	<script src="student_submission_edit.js"></script>
-    <!-- Bootstrap CSS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>  
+  <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Submission Form</title>
+    <script>
+      //$(document).ready(function(){
 
+      // jQuery methods go here...
+      // console.log("yo");
+      // $("div").hide();
+      // console.log($.ajax);
+      $.ajax({
+        type: "POST",
+        url: 'https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/CSE442Project/src/data.php',
+        dataType: 'json',
+        data: {functionname: 'add', arguments: []},
 
+        success: function (obj, textstatus) {
+                  if( !('error' in obj) ) {
+                      var x = obj.result;
+                      console.log(x);
+                  }
+                  else {
+                      //console.log(obj.error);
+                  }
+            }
+      });
+    // });
+    </script>
 </head>
 <body class="main">
 	<div class="main-div">
@@ -80,7 +104,7 @@
 			<label>Best</label>
 		</div>
 		<br><br>
-		<button onclick="nextStudent()">Next Student</button><br><br><br>
+		<button onclick="submit()">Submit</button><br><br><br>
 	</div>
 	<!--<button onclick="setStudentName('luke')">Click me</button>		Tests js setRole-->
     <!-- Optional JavaScript -->
