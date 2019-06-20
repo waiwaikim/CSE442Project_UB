@@ -17,7 +17,14 @@
   // }
   
   foreach($team as $name) {
+    if (empty($_POST["role'.$name.'"]) || empty($_POST["leadership'.$name.'"]) || 
+    empty($_POST["participation'.$name.'"]) || empty($_POST["prof'.$name.'"]) ||
+    empty($_POST["quality'.$name.'"])) {
+      echo "Please enter all scores";
+    }
+
     $role = $_POST["role'.$name.'"];
+    echo $role;
     $leadership = $_POST["leadership'.$name.'"];
     $participation = $_POST["participation'.$name.'"];
     $prof = $_POST["prof'.$name.'"];
