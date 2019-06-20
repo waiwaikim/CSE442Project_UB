@@ -1,5 +1,5 @@
-<?php include("LoginSQL.php"); ?>
-<?php include("ConfirmationCode.php"); ?>
+<?php include_once("LoginSQL.php"); ?>
+<?php include_once("ConfirmationCode.php"); ?>
 
 <?php
   $timeout = 15;
