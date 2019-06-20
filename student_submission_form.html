@@ -71,6 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					<input type="radio" class="radio" name="role" id="role1" value="1"> Occasionally completes work<br>
 					<input type="radio" class="radio" name="role" id="role2" value="2"> Mostly completes assigned work<br>
 					<input type="radio" class="radio" name="role" id="role3" value="3"> Always completes assigned work  
+					<span class="error"> <?php echo $roleErr;?></span>
 				</form> 
 			<label>Best</label>
 		</div><br><br><br>
@@ -82,6 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					<input type="radio" class="radio" name="leadership" id="leadership1" value="1"> Occasionally shows leadership; Mostly collaborates <br>
 					<input type="radio" class="radio" name="leadership" id="leadership2" value="2"> Shows an ability to lead when necessary; Willing to assist teammates<br>
 					<input type="radio" class="radio" name="leadership" id="leadership3" value="3"> Takes leadership role; Is a good collaborator
+					<span class="error"> <?php echo $leadershipErr;?></span>
 				</form> 
 			<label>Best</label>
 		</div><br><br><br>
@@ -93,6 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					<input type="radio" class="radio" name="participation"  id="participation1" value="1"> Offers unclear or unhelpful ideas in meetings<br>
 					<input type="radio" class="radio" name="participation"  id="participation2" value="2"> Attends and particpates in most meetings; Offer useful ideas in meetings<br>
 					<input type="radio" class="radio" name="participation"  id="participation3" value="3"> Attends and participates in all meetings; Clearly expresses well developed ideas
+					<span class="error"> <?php echo $participationErr;?></span>
 				</form> 
 			<label>Best</label>
 		</div><br><br><br>
@@ -104,6 +107,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					<input type="radio" class="radio" name="prof" id="professionalism1" value="1"> Usually appreciates teammates' perspective, but often unwilling to consider them<br>
 					<input type="radio" class="radio" name="prof" id="professionalism2" value="2"> Values teammates' perspectives and often willing to consider them<br>
 					<input type="radio" class="radio" name="prof" id="professionalism3" value="3"> Always courteous to teammates
+					<span class="error"> <?php echo $profErr;?></span>
 				</form>
 			<label>Best</label>
 		</div><br><br><br>
@@ -115,6 +119,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					<input type="radio" class="radio" name="quality" id="quality1" value="1"> Other sometimes needed to revise, debug, or fix their work<br>
 					<input type="radio" class="radio" name="quality" id="quality2" value="2"> Often commits to shared documents<br>
 					<input type="radio" class="radio" name="quality" id="quality3" value="3"> Frequently commits to shared documents
+					<span class="error"> <?php echo $qualityErr;?></span>
 				</form> 
 			<label>Best</label>
 		</div>
