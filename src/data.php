@@ -14,8 +14,10 @@
         switch($_POST['functionname']) {
             case 'add':
               $email = $_COOKIE["email"];
-
-              $aResult['result'] = $email;
+              $team = getTeammates($email);
+              foreach ($team as $name) {
+                $aResult[$name] = readSumbission($email, $name . "@buffalo.edu");
+              }
               break;
             default:
                $aResult['error'] = 'Not found function '.$_POST['functionname'].'!';
