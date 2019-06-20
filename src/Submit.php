@@ -10,7 +10,15 @@
   #array_push($team, "lukemcda");
   #array_push($team, "fengmaot");
   #array_push($team, "waiwaiki");
-  $team = getTeammates($email);  
+      
+    //hard-coded values until LOGIN page has a menu to choose from 
+    $year = "2019" ;
+    $term = "summer"; 
+    $class = "cse473";
+    //--------------------------------------------------------------
+    // DELETE Above once front-end has options/ drop-down menus to choose from
+      
+  $team = getTeammates($year, $term, $class, $email);
   // writeSubmission("jmsiegel@buffalo.edu", "waiwaiki@buffalo.edu", "1", "2", "0", "1", "3");
   // echo "success";
   // foreach($team as $result) {
@@ -64,7 +72,7 @@
     if(isset($_POST[$index5])) {
       $quality = $_POST[$index5];
     }
-    writeSubmission($email, $name . "@buffalo.edu", $role, $leadership, $participation, $prof, $quality);      
+    writeSubmission($year, $term, $class, $email, $name . "@buffalo.edu", $role, $leadership, $participation, $prof, $quality);      
     
   }
   

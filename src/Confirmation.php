@@ -22,7 +22,7 @@
     if ($input == $code) {
       if (time() - ConfirmationCode::get_time($code) <= $timeout * 60) {
           setcookie("email", $email, 2147483647);
-          echo get_form(getTeammates($email));
+          echo get_form(getTeammates($year, $term, $class, $email));
       } else {
         echo "Failed to log in: Your code is too old. Please request a new one.";
       }

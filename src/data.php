@@ -12,11 +12,22 @@
     if( !isset($aResult['error']) ) {
 
         switch($_POST['functionname']) {
+
+
             case 'add':
               $email = $_COOKIE["email"];
-              $team = getTeammates($email);
+                
+            //hard-coded values until LOGIN page has a menu to choose from 
+              $year = "2019" ;
+              $term = "summer"; 
+              $class = "cse473";
+              //--------------------------------------------------------------
+              // DELETE Above once front-end has options/ drop-down menus to choose from
+                  
+              $team = getTeammates($year, $term, $class, $email);
               foreach ($team as $name) {
-                $aResult[$name] = readSumbission($email, $name . "@buffalo.edu");
+                 echo $name "<br>";
+                $aResult[$name] = readSumbission($year, $term, $class, $email, $name . "@buffalo.edu");
               }
               break;
             default:

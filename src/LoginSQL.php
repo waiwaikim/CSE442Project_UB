@@ -79,7 +79,7 @@
         //when an existing email is entered
             
             $stmt = mysqli_prepare($conn, "UPDATE loginInfo SET code = ? WHERE email = ? and year = ? and term = ? and class = ? ");
-            mysqli_stmt_bind_param($stmt, "ss",$code, $email, $year, $term, $class);
+            mysqli_stmt_bind_param($stmt, "sssss",$code, $email, $year, $term, $class);
             mysqli_stmt_execute($stmt);
 
         }

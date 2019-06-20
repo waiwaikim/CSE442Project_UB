@@ -3,14 +3,14 @@
 
 <?php
 
-    function checkSubmission($year, $term, $class, $email){
+    function checkSubmission($email){
     // check if a student has submitted an evluation or not
     // read from loginInfo
     // return true or false
         $conn = sqlConnect();
 
-        $stmt = mysqli_prepare($conn, "SELECT submission FROM loginInfo WHERE email = ? and year = ? and term = ? and class = ? ");
-        mysqli_stmt_bind_param($stmt, "ssss", $email, $year, $term, $class);
+        $stmt = mysqli_prepare($conn, "SELECT submission FROM loginInfo WHERE email = ?");
+        mysqli_stmt_bind_param($stmt, "s", $email);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $submission);
         mysqli_stmt_fetch($stmt);
@@ -20,7 +20,7 @@
 
     }
 
-    function getTeammates($year, $term, $class, $email){
+    function getTeammates($email){
         // returns team members for a given email
         // returns an array
         // echo $email;
@@ -29,10 +29,9 @@
 
 
         $stmt = mysqli_prepare($conn, "SELECT ubit FROM roster_csvInput a
-                                    JOIN (SELECT year, term, class, team FROM roster_csvInput WHERE ubit = ? and year = ? and term = ? and class = ?) b
-                                    on a.year = b.year and a.term = b.term and a.class = b.class and a.team = b.team");
-        
-        mysqli_stmt_bind_param($stmt, "ssss", substr($email,0, strpos($email,'@')), $year, $term, $class);
+                                    JOIN (SELECT team FROM roster_csvInput WHERE ubit = ?) b
+                                    on a.team = b. team");
+        mysqli_stmt_bind_param($stmt, "s", substr($email,0, strpos($email,'@')));
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $ubit);
 
@@ -47,7 +46,7 @@
 
 
 
-    function readSumbission($year, $term, $class, $evaluator, $evaluatee){
+    function readSumbission($evaluator, $evaluatee){
         // returns a evaluation score for a given evaluator and a evaluatee
         // returns an array, which can be indexed. i.e.) row[0]
 
@@ -59,9 +58,9 @@
                                     participation,
                                     professionalism,
                                     quality1
-                                    FROM evaluationInfo WHERE year = ? and term = ? and class =? and evaluator = ? and evaluatee = ?");
+                                    FROM evaluationInfo WHERE evaluator = ? and evaluatee = ?");
 
-        mysqli_stmt_bind_param($stmt, "sssss",$year, $term, $class, substr($evaluator,0, strpos($evaluator,'@')),substr($evaluatee,0, strpos($evaluatee,'@')));
+        mysqli_stmt_bind_param($stmt, "ss",substr($evaluator,0, strpos($evaluator,'@')),substr($evaluatee,0, strpos($evaluatee,'@')));
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $role, $lead, $part, $prof, $qaul);
         mysqli_stmt_fetch($stmt);
@@ -70,7 +69,7 @@
         return $row;
     }
 
-    function writeSubmission ($year, $term, $class, $evaluator, $evaluatee, $role, $lead, $part, $prof, $qual){
+    function writeSubmission ($evaluator, $evaluatee, $role, $lead, $part, $prof, $qual){
         // write evaluation score to SQL table called evaluationInfo
         //
         $conn = sqlConnect();
@@ -81,9 +80,9 @@
                                     participation = ?,
                                     professionalism = ?,
                                     quality1 = ?
-                                    WHERE year = ? and term = ? and class =? and evaluator = ? and evaluatee = ?");
+                                    WHERE evaluator = ? and evaluatee = ?");
 
-        mysqli_stmt_bind_param($stmt, "iiiiisssss",$role, $lead, $part, $prof, $qual,$year, $term, $class,substr($evaluator,0, strpos($evaluator,'@')), substr($evaluatee,0, strpos($evaluatee,'@')));
+        mysqli_stmt_bind_param($stmt, "iiiiiss",$role, $lead, $part, $prof, $qual,substr($evaluator,0, strpos($evaluator,'@')), substr($evaluatee,0, strpos($evaluatee,'@')));
 
         mysqli_stmt_execute($stmt);
 
