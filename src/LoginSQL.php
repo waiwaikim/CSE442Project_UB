@@ -113,6 +113,7 @@
         mysqli_stmt_bind_result($stmt, $last_name, $first_name);
         mysqli_stmt_fetch($stmt);
         
+        $first_name .= " ";
         $first_name .= $last_name;
         return $first_name;
         
