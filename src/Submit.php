@@ -1,10 +1,22 @@
-<?php include_once('submissionSQL.php'); ?>
+<?php include('submissionSQL.php'); ?>
 
 <?php
+  if (isset($_POST['submit'])) {
+  # echo "YOOOO";
   $email = $_COOKIE["email"];
-  $team_members = getTeamates($email);
+  // echo $email;
+  #$team = array(); //getTeamates($email);
+  #array_push($team, "jmsiegel");
+  #array_push($team, "lukemcda");
+  #array_push($team, "fengmaot");
+  #array_push($team, "waiwaiki");
+  $team = getTeammates($email);  
 
-  foreach($team_members as $name) {
+  // foreach($team as $result) {
+    // echo $result, '<br>';
+  // }
+  
+  foreach($team as $name) {
     $role = $_POST["role'.$name.'"];
     $leadership = $_POST["leadership'.$name.'"];
     $participation = $_POST["participation'.$name.'"];
@@ -13,6 +25,9 @@
     
     writeSubmission($email, $name, $role, $leadership, $participation, $prof, $quality);
     echo "submission success";
+  }
+  // echo "success";
+}
 
   //   if (!empty($_POST["role0'.$name.'"])) {
   //     $role = 0;

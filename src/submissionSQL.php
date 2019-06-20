@@ -23,6 +23,7 @@
     function getTeammates($email){
         // returns team members for a given email
         // returns an array
+        // echo $email;
         $conn = sqlConnect();
 
 
