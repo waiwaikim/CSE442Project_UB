@@ -106,6 +106,33 @@
         
     }
 
+    function getYear(){
+        $servername = "tethys.cse.buffalo.edu";
+        $username = 'waiwaiki';
+        $password = '50180101';
+        $database = 'cse442_542_2019_summer_teamd_db';
+
+        $conn = new mysqli($servername, $username, $password, $database) or die ("Connection failed: " . mysqli_connect_error());
+       
+
+        $stmt = mysqli_prepare($conn, "SELECT
+                                        DISTINCT year
+                                    FROM roster_csvInput ");
+        mysqli_stmt_bind_param($stmt);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $year);
+
+
+        while (mysqli_stmt_fetch($stmt)) { 
+        
+             echo $year;
+            
+        }
+
+    }
+
+
+
     function getName($ubit){
         //returns a full Name 
         $conn = sqlConnect();

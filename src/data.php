@@ -18,7 +18,7 @@
               $email = $_COOKIE["email"];
                 
             //hard-coded values until LOGIN page has a menu to choose from 
-              $year = "2019" ;
+              $year = "2019";
               $term = "summer"; 
               $class = "cse473";
               //--------------------------------------------------------------
@@ -26,7 +26,6 @@
                   
               $team = getTeammates($year, $term, $class, $email);
               foreach ($team as $name) {
-                 echo $name "<br>";
                 $aResult[$name] = readSumbission($year, $term, $class, $email, $name . "@buffalo.edu");
               }
               break;
