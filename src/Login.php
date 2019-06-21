@@ -11,7 +11,14 @@
 
       $conn = sqlConnect();
 
-      if (!checkValidStudent($conn, $email)){
+      //hard-coded values until LOGIN page has a menu to choose from 
+      $year = "2019" ;
+      $term = "summer"; 
+      $class = "cse473";
+      //--------------------------------------------------------------
+      // DELETE Above once front-end has options/ drop-down menus to choose from
+        
+      if (!checkValidStudent($conn, $year, $term, $class, $email)){
           echo "You are not a valid active student of the class";
       }
       else{
@@ -20,7 +27,7 @@
         //runTestSubmissionSQL($email);
 
         $conn = sqlConnect();
-        insertEmail($conn, $email, $code);
+        insertEmail($conn, $year, $term, $class, $email, $code);
 
         mail($email, "Course Evaluation Confirmation", "Welcome! Your confirmation code is ".$code." \n Please go to: https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/confirmation.html");
         echo "A confirmation code has been sent to ".$email;
