@@ -14,7 +14,10 @@
         $(document).ready(function(){
             $("form").submit(function(event){
                 if ($('div:not(:has(:radio:checked))').length) {
-                    alert("You have not checked all options.");
+                    var num_miss= $('div:not(:has(:radio:checked))').length;
+//                    output = $('div:not(:has(:radio:checked))').attr('name');                    
+                    //$("span").text(num_miss);
+                    alert("You have missed " + num_miss + " questions.");
                     event.preventDefault();
                 } 
             });
