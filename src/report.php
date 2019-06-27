@@ -13,7 +13,7 @@ if (isset($argc)) {
     $result = $conn->query("SELECT evaluator FROM evaluationInfo WHERE year ="."'$year'"."AND term ="."'$term'"."AND class ="."'$class'"."AND team ="."'$team'");
     $members = array();
     while ($row = $result->fetch_assoc()) {
-      if (!in_array($row['evaluator'], $members)) {  // bad code btw LOL
+      if (!in_array($row['evaluator'], $members)) {
         array_push($members, $row['evaluator']);
       }
     }
@@ -41,7 +41,7 @@ if (isset($argc)) {
     echo "Usage: php report.php year term class team\n";
   }
 } else {
-  echo "UMM I JUST WANNA CRY NOW\n";
+  echo "\$argc not set!\n";
 }
 
 ?>
