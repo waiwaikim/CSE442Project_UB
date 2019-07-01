@@ -14,11 +14,21 @@ body {
 
 
 #indentation{
-	margin-left: 33%;
+	margin-left: 31%;
 	margin-top: 5%;
-	width: 35%;
+	width: 40%;
 	padding-left: 0%;
 }
+
+@media (max-width: 800px){
+	#indentation{
+		margin-left: 13%;
+		margin-top: 3%;
+		width: 70%;
+		padding-left: 0%;
+	}
+}
+
 
 .buttons{
 	margin-left: 0%;
