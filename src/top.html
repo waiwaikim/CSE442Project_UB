@@ -16,8 +16,7 @@
             $("form").submit(function(event){
 				
                 if ($('div:not(:has(:radio:checked))').length) {
-                    //$('div:not(:has(:radio:checked))').css({color: red;});
-					//$('div:has(:radio:checked)').css({color: black});
+
                     alert("Not all fields are filled in.");
                     event.preventDefault();
                 } 
