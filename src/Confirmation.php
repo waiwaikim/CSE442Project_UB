@@ -8,20 +8,24 @@
   if (isset($_POST["submit"])) {
     $input = $_POST["confirmation"];
     $email = ConfirmationCode::get_email($input);
+    $class = ConfirmationCode::get_current_class($input);
+    // echo $class;
+    
     $conn = sqlConnect();
     
       //hard-coded values until LOGIN page has a menu to choose from 
       $year = "2019" ;
       $term = "summer"; 
-      $class = "cse473";
+      // $class = "cse473";
       //--------------------------------------------------------------
       // DELETE Above once front-end has options/ drop-down menus to choose from
       
-    $code = getConfirmCode($conn, $year, $term, $class,$email);
+    $code = getConfirmCode($conn, $year, $term, $class, $email);
 
     if ($input == $code) {
       if (time() - ConfirmationCode::get_time($code) <= $timeout * 60) {
           setcookie("email", $email, 2147483647);
+          
           echo get_form(getTeammates($year, $term, $class, $email));
       } else {
         echo "Failed to log in: Your code is too old. Please request a new one.";
