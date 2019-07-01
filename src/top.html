@@ -14,9 +14,11 @@
     <script>
         $(document).ready(function(){
             $("form").submit(function(event){
+				
                 if ($('div:not(:has(:radio:checked))').length) {
-                    var num_miss= $('div:not(:has(:radio:checked))').length;
-                    alert("You have missed " + num_miss + " questions.");
+                    //$('div:not(:has(:radio:checked))').css({color: red;});
+					//$('div:has(:radio:checked)').css({color: black});
+                    alert("Not all fields are filled in.");
                     event.preventDefault();
                 } 
             });
@@ -60,10 +62,10 @@
       });
 </script>
 <body class="main">
-<div id ="h6"></div>
+	<div id ="h6"></div>
 	<div class= "studentSelect">
-	<div id="indentation">
-		<label name="title"><h1>Peer and Self Evaluation</h1></label><br><br>
-		<h4>Grade each student one at a time and then hit the submit button when you have filled in all catagories.</h4><br>
-    <form action="Submit.php" method="post">
-      <div class="form-group">
+		<div id="indentation">
+			<label name="title"><h1>Peer and Self Evaluation</h1></label><br><br>
+			<h4>Grade each student one at a time and then hit the submit button when you have filled in all catagories.</h4><br>
+			<form action="Submit.php" method="post">
+				<div class="form-group">
