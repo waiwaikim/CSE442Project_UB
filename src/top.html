@@ -12,33 +12,26 @@
     <!--JQuery Google CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $("form").submit(function(event){
+        // $(document).ready(function(){
+        //     $("form").submit(function(event){
 				
-                if ($('div:not(:has(:radio:checked))').length) {
+        //         if ($('div:not(:has(:radio:checked))').length) {
 
-                    alert("Not all fields are filled in.");
-                    event.preventDefault();
-                } 
-            });
-        });
+        //             alert("Not all fields are filled in.");
+        //             event.preventDefault();
+        //         } 
+        //     });
+        // });
     </script>
     <title>Evaluation Form</title>
 </head>
 <script>
-      //$(document).ready(function(){
-
-      // jQuery methods go here...
-      // console.log("yo");
-      // $("div").hide();
-      // console.log($.ajax);
       $.ajax({
         type: "POST",
         // url: 'https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/src/data.php',
-        url: 'http://localhost/CSE442Project/src/data.php',
+        url: 'data.php',
         dataType: 'json',
         data: {functionname: 'getScores', arguments: []},
-
         success: function (obj, textstatus) {
                   if( !('error' in obj) ) {
                       console.log(obj);
@@ -56,7 +49,7 @@
                        });  
                   }
                   else {
-                      //console.log(obj.error);
+                      console.log(obj.error);
                   }
             }
       });

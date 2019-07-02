@@ -2,6 +2,8 @@
 
 
 <?php
+    ini_set('display_errors', 0);
+    error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 
     function checkSubmission($year, $term, $class, $email){
     // check if a student has submitted an evluation or not
@@ -20,7 +22,7 @@
 
     }
 
-    function getTeammates($year, $term, $class, $email){
+    function getTeammates($year, $term, $class, $email) {
         // returns team members for a given email
         // returns an array
         // echo $email;
