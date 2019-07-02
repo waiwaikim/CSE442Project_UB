@@ -14,13 +14,24 @@
     <script>
         $(document).ready(function(){
             $("form").submit(function(event){
-				
-                if ($('div:not(:has(:radio:checked))').length) {
-
-                    alert("Not all fields are filled in.");
-                    event.preventDefault();
-                } 
+				var check = true;
+				$("input:radio").each(function(){
+					var name = $(this).attr("name");
+					if($("input:radio[name="+name+"]:checked").length == 0){
+						check = false;
+					}
+				});
+				if(check){
+					
+				}
+				else{
+					alert("Not all fields are filled in.");
+                    event.preventDefault();	
+				}
             });
+		
+       
+  
         });
     </script>
     <title>Evaluation Form</title>
