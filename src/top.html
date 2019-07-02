@@ -35,9 +35,10 @@
       // console.log($.ajax);
       $.ajax({
         type: "POST",
-        url: 'https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/src/data.php',
+        // url: 'https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/src/data.php',
+        url: 'http://localhost/CSE442Project/src/data.php',
         dataType: 'json',
-        data: {functionname: 'add', arguments: []},
+        data: {functionname: 'getScores', arguments: []},
 
         success: function (obj, textstatus) {
                   if( !('error' in obj) ) {
