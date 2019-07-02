@@ -25,6 +25,7 @@
         
         $stmt = $conn->prepare("SELECT ubit, active FROM roster_csvInput 
                                 WHERE ubit = ? and  year = ? and term = ? and class = ?");
+                                
         $stmt->bind_param("ssss", substr($email,0, strpos($email,'@')), $year, $term, $class);
         $stmt->execute();
         $stmt->bind_result($ubit, $active);

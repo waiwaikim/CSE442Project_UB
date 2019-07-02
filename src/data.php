@@ -10,17 +10,14 @@
     #if( !isset($_POST['arguments']) ) { $aResult['error'] = 'No function arguments!'; }
 
     if( !isset($aResult['error']) ) {
-
         switch($_POST['functionname']) {
-
-
-            case 'add':
+            case 'getScores':
               $email = $_COOKIE["email"];
-                
+              $class = $_COOKIE["class"];
             //hard-coded values until LOGIN page has a menu to choose from 
               $year = "2019";
               $term = "summer"; 
-              $class = "cse473";
+              
               //--------------------------------------------------------------
               // DELETE Above once front-end has options/ drop-down menus to choose from
                   
