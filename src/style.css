@@ -11,3 +11,51 @@
 body {
   background-color: #D3D3D3; 
 }
+
+
+#indentation{
+	margin-left: 31%;
+	margin-top: 5%;
+	width: 40%;
+	padding-left: 0%;
+}
+
+@media (max-width: 800px){
+	#indentation{
+		margin-left: 4%;
+		margin-top: 5%;
+		width: 90%;
+		padding-left: 0%;
+	}
+}
+
+
+.buttons{
+	margin-left: 0%;
+}
+
+#smallText{
+	margin-left: 0%;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 18px;
+}
+
+h2{
+	margin-left: 0%;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+h4{
+	margin-left: 0%;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 24px;
+	
+}
+
+h1{
+	margin-left: 0%;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 34px;
+}
+

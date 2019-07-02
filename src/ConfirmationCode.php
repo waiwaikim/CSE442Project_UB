@@ -6,14 +6,14 @@
     private static $iv = "cfb847854b218acb";
 
     // generates a confirmation code
-    public static function get_code($email) {
-      return ConfirmationCode::_get_code(strval(time()), $email);
+    public static function get_code($email, $class) {
+      return ConfirmationCode::_get_code(strval(time()), $email, $class);
     }
 
     // added for testing purpose (DO NOT USE)
-    public static function _get_code($time, $email) {
+    public static function _get_code($time, $email, $class) {
       $ubit = substr($email, 0, strpos($email, "@"));
-      $message = $ubit."@".$time;
+      $message = $ubit."@".$time."-".$class;
       return openssl_encrypt($message, ConfirmationCode::$encrypt_method, ConfirmationCode::$key, 0, ConfirmationCode::$iv);
     }
 
@@ -27,6 +27,11 @@
     public static function get_email($code) {
       $message = openssl_decrypt($code, ConfirmationCode::$encrypt_method, ConfirmationCode::$key, 0, ConfirmationCode::$iv);
       return substr($message, 0, strpos($message, "@"))."@buffalo.edu";
+    }
+
+    public static function get_current_class($code) {
+      $message = openssl_decrypt($code, ConfirmationCode::$encrypt_method, ConfirmationCode::$key, 0, ConfirmationCode::$iv);
+      return substr($message, strpos($message, "-") + 1);
     }
   }
 ?>
