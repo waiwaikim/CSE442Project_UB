@@ -29,27 +29,17 @@
                     event.preventDefault();	
 				}
             });
-		
-       
-  
         });
     </script>
     <title>Evaluation Form</title>
 </head>
 <script>
-      //$(document).ready(function(){
-
-      // jQuery methods go here...
-      // console.log("yo");
-      // $("div").hide();
-      // console.log($.ajax);
       $.ajax({
         type: "POST",
         // url: 'https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/src/data.php',
-        url: 'http://localhost/CSE442Project/src/data.php',
+        url: 'data.php',
         dataType: 'json',
         data: {functionname: 'getScores', arguments: []},
-
         success: function (obj, textstatus) {
                   if( !('error' in obj) ) {
                       console.log(obj);
@@ -67,7 +57,7 @@
                        });  
                   }
                   else {
-                      //console.log(obj.error);
+                      console.log(obj.error);
                   }
             }
       });
