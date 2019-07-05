@@ -4,20 +4,22 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="pragma" content="no-cache" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Confirmation Code</title>
-  </head>
-  <body>
-    <div>
+  </head>   
+  <body class="main">
+    <div class="main-div">
       <form action="src/Confirmation.php" method="post">
         <h2 class="text-center">Confirmation Code</h2>
         <div class="form-group">
           <input type="text" required="required" class="form-control" id="confirmation" placeholder="Confirmation Code" name="confirmation">
         </div>
         <button type="submit" class="btn btn-primary" name="submit">Login</button>
+        <p class="mt-5 mb-3 text-muted text-center">© 2019</p>
       </form>
     </div>
 

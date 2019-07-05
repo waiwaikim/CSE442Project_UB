@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!--JQuery Google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("form").submit(function(event){
+				var check = true;
+				$("input:radio").each(function(){
+					var name = $(this).attr("name");
+					if($("input:radio[name="+name+"]:checked").length == 0){
+						check = false;
+					}
+				});
+				if(check){
+					
+				}
+				else{
+					alert("Not all fields are filled in.");
+                    event.preventDefault();	
+				}
+            });
+        });
+    </script>
+    <title>Evaluation Form</title>
+</head>
+<script>
+      $.ajax({
+        type: "POST",
+        // url: 'https://www-student.cse.buffalo.edu/CSE442-542/2019-Summer/cse-442d/src/data.php',
+        url: 'data.php',
+        dataType: 'json',
+        data: {functionname: 'getScores', arguments: []},
+        success: function (obj, textstatus) {
+                  if( !('error' in obj) ) {
+                      console.log(obj);
+                      $.each(obj, (key, value) => {
+                        const role = value[0]; 
+                        const lead = value[1];
+                        const part = value[2];
+                        const prof = value[3];
+                        const qual = value[4];
+                        document.getElementById("role" + role + key).checked = true;               
+                        document.getElementById("leadership" + lead + key).checked = true;
+                        document.getElementById("participation" + part + key).checked = true;
+                        document.getElementById("professionalism" + prof + key).checked = true;
+                        document.getElementById("quality" + qual + key).checked = true;
+                       });  
+                  }
+                  else {
+                      console.log(obj.error);
+                  }
+            }
+      });
+</script>
+<body class="main">
+	<div id ="h6"></div>
+	<div class= "studentSelect">
+		<div id="indentation">
+			<label name="title"><h1>Peer and Self Evaluation</h1></label><br><br>
+			<h4>Grade each student one at a time and then hit the submit button when you have filled in all catagories.</h4><br>
+			<form action="Submit.php" method="post">
+				<div class="form-group">
